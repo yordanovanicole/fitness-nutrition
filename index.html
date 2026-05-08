@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фитнес Тренировки</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header-container">
+        <h1>Фитнес и Здравословен Живот</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Начало</a></li>
+        <li><a href="trainings.html">Тренировки</a></li>
+        <li><a href="nutrition.html">Хранене</a></li>
+        <li><a href="calculator.html">Калориен калкулатор</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <div>
+            <img src="https://tv7.bg/storage/2024/03/healthy-life.jpg"  alt="Фитнес мотивация"  style="display: block; margin: 0 auto; width: 70%; max-height: 400px; ">
+            <article>
+            <h2>Добре дошли!</h2>
+            <p style="text-align: center;">Вашето фитнес пътешествие започва тук. Ние предлагаме персонализирани тренировъчни и хранителни планове за оптимално здраве.</p>
+        </article>
+            
+         </div>
+        <section id="consultation">
+    <h2>Запази консултация</h2>
+    <form id="consultation-form">
+        <label for="name">Име:</label>
+        <input type="text" id="name" name="name" placeholder="Вашето име" required>
+
+        <label for="password">Парола:</label>
+        <input type="password" id="password" name="password" placeholder="Вашата парола" required>
+        
+
+        <label for="email">Имейл:</label>
+        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+
+        <label for="phone">Телефон:</label>
+        <input type="tel" id="phone" name="phone" placeholder="0888 123 456" pattern="08[7-9]{1}[0-9]{7}" required>
+
+        <label for="date">Дата за консултация:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="comments">Коментар:</label>
+        <textarea id="comments" name="comments" placeholder="Вашият коментар..." rows="4"></textarea>
+
+        <button type="submit">Създай профил и изпрати</button>
+    </form>
+    <script>document.getElementById("consultation-form").addEventListener("submit", function (e) {
+    e.preventDefault(); 
+
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const date = document.getElementById("date").value;
+    const comments = document.getElementById("comments").value.trim();
+    const password = document.getElementById("password").value;
+    if (name === "") {
+        alert("Моля, въведете вашето име.");
+        return;
+    }
+ 
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
+
+    if (!passwordPattern.test(password)) {
+    e.preventDefault(); 
+    alert("Паролата трябва да съдържа поне 8 символа, включително малки и големи букви, число и специален символ.");
+    return;
+     }
+    
+
+    const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+    if (!emailPattern.test(email)) {
+        alert("Моля, въведете валиден имейл адрес.");
+        return;
+    }
+
+    const phonePattern = /^08[7-9]{1}[0-9]{7}$/;
+    if (!phonePattern.test(phone)) {
+        alert("Моля, въведете валиден телефонен номер (формат: 0888123456).");
+        return;
+    }
+
+    const today = new Date();
+    const selectedDate = new Date(date);
+    if (selectedDate < today) {
+        alert("Моля, изберете дата, която е днес или в бъдещето.");
+        return;
+    }
+
+    alert("Вашият профил беше създаден успешно. Благодарим Ви за заявката за консултация!");
+    document.getElementById("consultation-form").reset(); // Нулира формуляра
+});
+</script>
+</section>
+        <section>
+           <h2> Галерия</h2> <br>
+       <img src="https://media.istockphoto.com/id/1124838897/photo/side-view-of-woman-eating-healthy-food-in-gym.jpg?s=612x612&w=0&k=20&c=u9k2WvetQ7p8LBL8bUZSTjAfrC16e3xStsfDzCp0hgs=" alt="Фитнес мотивация" style="display: block; margin: 0 auto; width: 60%; max-height: 400px; ">
+       <br> <img src="https://www.crunch.com/wp-content/uploads/2023/01/CR011SLTH_January_1.30_Hub-Images_5-Health-Related-Components-of-Fitness_1.26.23.jpg" alt="Фитнес мотивация" style="display: block; margin: 0 auto; width:60%; max-height:400px;">
+       <br> <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Sports_Nutrition_Supplements.jpg" alt="Фитнес мотивация" style="display: block; margin: 0 auto; width:60%; max-height:400px;">
+       <br> <div style="display: block; width: fit-content; margin: 0 auto;">
+   <iframe  width="700" height="400" src="https://www.youtube.com/embed/e_eJRDl2J6Y" title="Fitness Motivation"
+    style="border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.3);" allowfullscreen>
+    </iframe>
+</div>
+
+        </section>
+    </main>
+
+    <footer class="footer-container">
+        <p>&copy; 2025 Фитнес и Здравословен Живот. </p>
+    </footer>
+</body>
+</html>
